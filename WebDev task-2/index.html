@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Zombie Game</title>
+</head>
+<body>
+
+    <div class="game" id="game">
+        <canvas id="c2"></canvas>
+        <canvas id="c1"></canvas>
+
+        <div class='heart-box'>
+            <img src="img/heart.png" class="heart heart1"/>
+            <img src="img/heart.png" class="heart heart2"/>
+            <img src="img/heart.png" class="heart heart3"/>
+        </div>
+
+        <div id="tab">
+
+            <div id="scored">Score: 0</div>
+            <p>JETPACK FUEL</p>
+        </div>
+        
+        <div id="cursor">
+            <div id="red"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="start">
+        <h1 class="l l1"> LAST STAND </h1>
+        <h2 class="l l2"> Input your nickname: </h2>
+        <form>
+            <label for="fname" id="label"></label><br>
+            <input type="text" id="fname" name="fname"><br>
+        </form>
+        <button class="button" id="btn"> START </button>
+    </div>
+    
+    <div id="countdown" class="hidden">
+        <h2>Game starting in <span id="countdown-timer">45</span> seconds...</h2>
+    </div>
+    
+    <div id="gunDisplay">
+        <span>Current Gun: </span>
+        <img id="currentGunImage" src="smg.png" alt="Current Gun" width="50">
+    </div>
+    
+  
+
+    <!-- Game Rules Section -->
+    <div id="game-rules">
+        <h2>Game Rules</h2>
+        <ul>
+            <li>Movement:
+                <ul>
+                    <li>Move Left: ArrowLeft, A</li>
+                    <li>Move Right: ArrowRight, D</li>
+                    <li>Move Up: ArrowUp, W</li>
+                </ul>
+            </li>
+            <li>Jetpack:
+                <ul>
+                    <li>Activate Jetpack: Spacebar</li>
+                    <li>Deactivate Jetpack: Release Spacebar</li>
+                </ul>
+            </li>
+            <li>Shooting:
+                <ul>
+                    <li>Shoot: Click (with mouse)</li>
+                </ul>
+            </li>
+            <li>Inventory:
+                <ul>
+                    <li>Open/Close Inventory: Q</li>
+                </ul>
+            </li>
+            <li>Immunity:
+                <ul>
+                    <li>Activate Immunity: I (limited to 2 uses)</li>
+                </ul>
+            </li>
+            <li>Weapon Selection:
+                <ul>
+                    <li>SMG: 1</li>
+                    <li>Assault Rifle: 2</li>
+                    <li>Sniper: 3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal" id="end">
+        <h1 class="l l1"> Game over </h1>
+        <h2 class="l l2"> Highscores</h2>
+        <ul class="score">
+            <li><div id="first">1. Nick  /00/00/00</div></li>
+            <li><div id="second">2. Nick  /00/00/00</div></li>
+            <li><div id="third">3. Nick  /00/00/00</div></li>
+            <li><div id="fourth">4. Nick  /00/00/00</div></li>
+            <li><div id="fifth">5. Nick  /00/00/00</div></li>
+            <li><div id="sixth">6. Nick  /00/00/00</div></li>
+            <li><div id="seventh">7. Nick  /00/00/00</div></li>
+        </ul>
+        <button class="button" id="btn2"> PLAY AGAIN </button>
+    </div>
+
+    <div class="hidden" id="inventoryPopup">
+        <h2>Inventory</h2>
+        <div class="button-container">
+            <button id="obstacleButton">Place Obstacle</button>
+            <button id="trapButton">Place Trap</button>
+            <button id="mineButton">Place Mine</button>
+        </div>
+        <button id="startGameFromInventory">Start Game</button>
+    </div>
+
+    <script src="game2.js" defer></script>
+    <audio id="reloadSound" src="reload.mp3"></audio>
+    <audio id="gamestart" src="gamestart.mp3"></audio>
+    <audio id="thunder" src="thunder.mp3"></audio>
+    <audio id="zombiebite" src="zombiebite.mp3"></audio>
+    <audio id="ambientsound" src="ambientsound.mp3"></audio>
+	<audio id="gunshot" src="9mm-pistol-shot-6349.mp3"></audio>
+</body>
+</html>

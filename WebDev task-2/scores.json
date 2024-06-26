@@ -1,0 +1,52 @@
+{
+    "scores": [
+      {
+        "id": 1,
+        "name": "user1",
+        "score": 140,
+        "date": "17-6-2022"
+      },
+      {
+        "id": 2,
+        "name": "user2",
+        "score": 130,
+        "date": "23-7-2022"
+      },
+      {
+        "id": 3,
+        "name": "user3",
+        "score": 120,
+        "date": "11-3-2022"
+      },
+      {
+        "id": 4,
+        "name": "user4",
+        "score": 110,
+        "date": "11-3-2022"
+      },
+      {
+        "id": 5,
+        "name": "user5",
+        "score": 100,
+        "date": "11-3-2022"
+      },
+      {
+        "id": 6,
+        "name": "user6",
+        "score": 90,
+        "date": "11-3-2022"
+      },
+      {
+        "id": 7,
+        "name": "user7",
+        "score": 80,
+        "date": "11-3-2022"
+      },
+      {
+        "id": 8,
+        "name": "YoC00lig",
+        "score": 282,
+        "date": "5-2-2023"
+      }
+    ]
+  }
