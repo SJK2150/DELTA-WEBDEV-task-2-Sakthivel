@@ -494,39 +494,46 @@ class Mortar {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.burstDuration = 25000; 
-        this.bulletsPerBurst = 5; 
-        this.bulletsFired = 0; 
-        this.lastShotTime = 0; 
-        this.burstStartTime = Date.now(); 
+        this.cooldown = 15000;
+        this.burstCooldown = 2000;
+        this.lastShotTime = 0;
+        this.shotsInBurst = 5; 
+        this.shotCount = 0;
         this.image = new Image();
         this.image.src = "mortar2.png";
     }
 
     shoot() {
-        const now = Date.now();
+        const currentTime = Date.now();
 
-       
-        if (now - this.burstStartTime >= this.burstDuration) {
-            this.bulletsFired = 0;
-            this.burstStartTime = now;
-        }
-
-        if (this.bulletsFired < this.bulletsPerBurst && now - this.lastShotTime >= this.cooldown) {
-            const angle = 7*Math.PI / 16; 
-            const speed = 10; 
-            const targetX = this.x + Math.cos(angle) * speed;
-            const targetY = this.y - Math.sin(angle) * speed;
-
-            const mortarBullet = new MortarBullet(this.x, this.y, targetX, targetY);
-            projectiles.push(mortarBullet);
-            this.lastShotTime = now;
-            this.bulletsFired++;
+        if (this.shotCount < this.shotsInBurst) {
+            
+            if (currentTime - this.lastShotTime >= this.burstCooldown) {
+                this.fireBullet();
+                this.shotCount++;
+                this.lastShotTime = currentTime;
+            }
+        } else {
+            
+            if (currentTime - this.lastShotTime >= this.cooldown) {
+                this.shotCount = 0; 
+                this.lastShotTime = currentTime;
+            }
         }
     }
 
+    fireBullet() {
+        const angle = 7 * Math.PI / 16; 
+        const speed = 10; 
+        const targetX = this.x + Math.cos(angle) * speed;
+        const targetY = this.y - Math.sin(angle) * speed;
+
+        const mortarBullet = new MortarBullet(this.x, this.y, targetX, targetY);
+        projectiles.push(mortarBullet);
+    }
+
     draw() {
-        c.drawImage(this.image, this.x, this.y, 50, 50);
+        c.drawImage(this.image, this.x, this.y, 50, 50); 
     }
 }
 
