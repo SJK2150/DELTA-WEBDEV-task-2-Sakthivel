@@ -1109,6 +1109,7 @@ function startGame() {
 
         let player = new Dude();
         players.push(player);
+	players.pop(0)
 
         
 
